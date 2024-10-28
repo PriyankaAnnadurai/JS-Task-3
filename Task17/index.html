@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Task List</title>
+    <style>
+        .task-list {
+            font-family: Arial, sans-serif;
+            width: 300px;
+            margin: auto;
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px 0;
+            font-size: 16px;
+        }
+        .task {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+        .task button {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="task-list">
+        <input id="taskInput" type="text" placeholder="New Task">
+        <button onclick="addTask()">Add Task</button>
+        <div id="tasks"></div>
+    </div>
+
+    <script>
+        function addTask() {
+            const taskText = document.getElementById("taskInput").value;
+            if (taskText) {
+                const taskContainer = document.createElement("div");
+                taskContainer.className = "task";
+                taskContainer.innerHTML = `${taskText} <button onclick="deleteTask(this)">Delete</button>`;
+                document.getElementById("tasks").appendChild(taskContainer);
+                document.getElementById("taskInput").value = '';
+            }
+        }
+        function deleteTask(button) {
+            button.parentElement.remove();
+        }
+    </script>
+</body>
+</html>

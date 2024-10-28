@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Collapsible Container</title>
+    <style>
+        .collapsible {
+            padding: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-align: left;
+            outline: none;
+        }
+        .content {
+            margin-top: 5px;
+            padding: 0 15px;
+            display: none;
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <button class="collapsible" onclick="toggleContent()">Toggle Content</button>
+    <div class="content" id="content">
+        <p>This is the hidden content that will appear and disappear when toggled.</p>
+    </div>
+
+    <script>
+        function toggleContent() {
+            const content = document.getElementById("content");
+            content.style.display = content.style.display === "block" ? "none" : "block";
+        }
+    </script>
+</body>
+</html>

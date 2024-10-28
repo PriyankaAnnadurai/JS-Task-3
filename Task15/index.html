@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Form Validation</title>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            margin: auto;
+            font-family: Arial, sans-serif;
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px 0;
+            font-size: 16px;
+        }
+        button {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2ecc71;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form">
+        <input type="text" id="username" placeholder="Username (min 3 chars)">
+        <div class="error" id="usernameError"></div>
+        <input type="email" id="email" placeholder="Email">
+        <div class="error" id="emailError"></div>
+        <input type="password" id="password" placeholder="Password (min 6 chars)">
+        <div class="error" id="passwordError"></div>
+        <button type="button" onclick="validateForm()">Submit</button>
+    </form>
+
+    <script>
+        function validateForm() {
+            let username = document.getElementById("username").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+
+            let usernameError = emailError = passwordError = false;
+
+            if (username.length < 3) {
+                document.getElementById("usernameError").innerText = "Username must be at least 3 characters.";
+                usernameError = true;
+            } else {
+                document.getElementById("usernameError").innerText = "";
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                document.getElementById("emailError").innerText = "Please enter a valid email.";
+                emailError = true;
+            } else {
+                document.getElementById("emailError").innerText = "";
+            }
+
+            if (password.length < 6) {
+                document.getElementById("passwordError").innerText = "Password must be at least 6 characters.";
+                passwordError = true;
+            } else {
+                document.getElementById("passwordError").innerText = "";
+            }
+
+            if (!usernameError && !emailError && !passwordError) {
+                alert("Form submitted successfully!");
+            }
+        }
+    </script>
+</body>
+</html>

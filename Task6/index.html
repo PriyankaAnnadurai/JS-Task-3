@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Swap Array Elements</title>
+    <style>
+        input, button {
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #ffb400;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #d99400;
+        }
+        #result {
+            margin-top: 15px;
+            font-size: 18px;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <input id="arrayInput" type="text" placeholder="Enter array elements separated by commas">
+    <button onclick="swapElements()">Swap First and Last</button>
+    <p id="result"></p>
+
+    <script>
+        function swapElements() {
+            let arr = document.getElementById('arrayInput').value.split(',').map(Number);
+            [arr[0], arr[arr.length - 1]] = [arr[arr.length - 1], arr[0]];
+            document.getElementById('result').innerText = `Swapped Array: ${arr.join(", ")}`;
+        }
+    </script>
+</body>
+</html>

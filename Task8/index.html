@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Longest String in Array</title>
+    <style>
+        input, button {
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #e67e22;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #d35400;
+        }
+        #result {
+            margin-top: 15px;
+            font-size: 18px;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <input id="arrayInput" type="text" placeholder="Enter strings separated by commas">
+    <button onclick="findLongestString()">Find Longest String</button>
+    <p id="result"></p>
+
+    <script>
+        function findLongestString() {
+            let arr = document.getElementById('arrayInput').value.split(',').map(str => str.trim());
+            let longest = arr.reduce((a, b) => (b.length > a.length ? b : a), "");
+            document.getElementById('result').innerText = `Longest String: ${longest}`;
+        }
+    </script>
+</body>
+</html>

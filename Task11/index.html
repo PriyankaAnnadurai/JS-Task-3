@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Fibonacci Series</title>
+    <style>
+        input, button {
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #27ae60;
+        }
+        #result {
+            margin-top: 15px;
+            font-size: 18px;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <input id="numberInput" type="number" placeholder="Enter number of terms">
+    <button onclick="generateFibonacci()">Generate Fibonacci</button>
+    <p id="result"></p>
+
+    <script>
+        function generateFibonacci() {
+            let n = parseInt(document.getElementById('numberInput').value);
+            let fib = [0, 1];
+            for (let i = 2; i < n; i++) {
+                fib[i] = fib[i - 1] + fib[i - 2];
+            }
+            document.getElementById('result').innerText = `Fibonacci Series: ${fib.slice(0, n).join(", ")}`;
+        }
+    </script>
+</body>
+</html>

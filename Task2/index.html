@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Build Table</title>
+    <style>
+        input, button {
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        table {
+            margin-top: 20px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <input id="rows" type="number" placeholder="Rows">
+    <input id="cols" type="number" placeholder="Columns">
+    <button onclick="buildTable()">Create Table</button>
+    <div id="tableContainer"></div>
+
+    <script>
+        function buildTable() {
+            const rows = parseInt(document.getElementById('rows').value);
+            const cols = parseInt(document.getElementById('cols').value);
+            let table = '<table>';
+            for (let i = 0; i < rows; i++) {
+                table += '<tr>';
+                for (let j = 0; j < cols; j++) {
+                    table += '<td>Cell</td>';
+                }
+                table += '</tr>';
+            }
+            table += '</table>';
+            document.getElementById('tableContainer').innerHTML = table;
+        }
+    </script>
+</body>
+</html>

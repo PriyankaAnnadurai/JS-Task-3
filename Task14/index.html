@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Pyramid Pattern</title>
+    <style>
+        input, button {
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        #result {
+            font-family: Courier, monospace;
+            white-space: pre;
+            font-size: 18px;
+            margin-top: 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <input id="rowsInput" type="number" placeholder="Enter number of rows">
+    <button onclick="generatePyramid()">Generate Pyramid</button>
+    <div id="result"></div>
+
+    <script>
+        function generatePyramid() {
+            const rows = parseInt(document.getElementById('rowsInput').value);
+            let pyramid = "";
+
+            for (let i = 0; i < rows; i++) {
+                pyramid += " ".repeat(rows - i - 1) + "*".repeat(2 * i + 1) + "\n";
+            }
+            for (let i = rows - 2; i >= 0; i--) {
+                pyramid += " ".repeat(rows - i - 1) + "*".repeat(2 * i + 1) + "\n";
+            }
+            document.getElementById('result').innerText = pyramid;
+        }
+    </script>
+</body>
+</html>

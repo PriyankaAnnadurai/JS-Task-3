@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Rotate String</title>
+    <style>
+        input, button {
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        #result {
+            margin-top: 15px;
+            font-size: 18px;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <input id="inputString" type="text" placeholder="Enter string">
+    <button onclick="rotateString()">Rotate</button>
+    <p id="result"></p>
+
+    <script>
+        function rotateString() {
+            let str = document.getElementById('inputString').value;
+            let rotations = [];
+            for (let i = 0; i < str.length; i++) {
+                str = str.slice(1) + str[0];
+                rotations.push(str);
+            }
+            document.getElementById('result').innerText = rotations.join(", ");
+        }
+    </script>
+</body>
+</html>
